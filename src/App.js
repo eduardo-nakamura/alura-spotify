@@ -15,14 +15,14 @@ function App() {
   };
 
   return (
-    <>
-      <Header searchInput={searchInput} onSearchChange={handleSearchChange} />
+    <div className="main-container">
+      <Sidebar />
       <section className='container-spotify'>
-        <Sidebar />
+        <Header searchInput={searchInput} onSearchChange={handleSearchChange} />
         <Playlist searchInput={searchInput} />
       </section>
       <Footer />
-    </>
+    </div>
   );
 }
 

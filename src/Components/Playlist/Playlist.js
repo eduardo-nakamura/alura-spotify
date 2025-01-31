@@ -2,7 +2,11 @@
 import React from 'react';
 import './Playlist.css';
 import Cards from './Cards/Cards'
+import Artists from './Artists/Artists'
 const Playlist = ({ searchInput }) => {
+  const filteredArtists = artistsJson.artists.filter(artist =>
+    artist.name.toLowerCase().includes(searchInput.toLowerCase())
+  );
   return (
     <div className="playlist-container">
       {/* Playlists */}
@@ -16,7 +20,7 @@ const Playlist = ({ searchInput }) => {
         <div className="offer__scroll-container">
           <div className="offer__list">
             <section className={`offer__list-item ${searchInput.length > 0 ? "hidden" : ""}`} id="cardsContainer" >
-              {data.cards.map(card => (
+              {playlistJson.cards.map(card => (
                 <Cards key={card.id} name={card.name} urlImg={card.urlImg} id={card.id} />
               ))}
             </section>
@@ -27,9 +31,9 @@ const Playlist = ({ searchInput }) => {
       {/* Artists */}
       <div id="result-artist" >
         <div className={`grid-container ${searchInput.length > 0 ? "" : "hidden"}`} id="grid-container">
-          <p>
-            Artistas
-          </p>
+          {filteredArtists.map((artist) => (
+            <Artists key={artist.id} name={artist.name} urlImg={artist.urlImg} id={artist.id} genre={artist.genre}/>
+          ))}
         </div>
       </div>
 
@@ -37,7 +41,7 @@ const Playlist = ({ searchInput }) => {
   );
 };
 
-const data = {
+const playlistJson = {
   "cards": [
     { "id": 1, "name": "Boas festas", "urlImg": "https://eduardo-nakamura.github.io/imersao-front-end-alura/src/assets/playlist/1.jpeg" },
     { "id": 2, "name": "Feitos para você", "urlImg": "https://eduardo-nakamura.github.io/imersao-front-end-alura/src/assets/playlist/2.png" },
@@ -56,5 +60,50 @@ const data = {
     { "id": 15, "name": "Música Latina", "urlImg": "https://eduardo-nakamura.github.io/imersao-front-end-alura/src/assets/playlist/15.jpeg" }
   ]
 };
-
+const artistsJson = {
+  "artists": [
+    {
+      "id": 1,
+      "name": "Foo Fighters",
+      "genre": "Rock",
+      "urlImg": "https://i.scdn.co/image/ab67616100005174c884df599abc793c116cdf15"
+    },
+    {
+      "id": 2,
+      "name": "Michael Jackson",
+      "genre": "Pop",
+      "urlImg": "https://i.scdn.co/image/ab676161000051740e08ea2c4d6789fbf5cbe0aa"
+    },
+    {
+      "id": 3,
+      "name": "Emicida",
+      "genre": "Hip Hop",
+      "urlImg": "https://i.scdn.co/image/ab67616100005174908b4b4bc90e1518b68b4068"
+    },
+    {
+      "id": 4,
+      "name": "Chitãozinho e Xororó",
+      "genre": "Sertanejo",
+      "urlImg": "https://i.scdn.co/image/ab676161000051744606c59411c57f7b49588be4"
+    },
+    {
+      "id": 5,
+      "name": "Mc Coringa",
+      "genre": "Funk",
+      "urlImg": "https://i.scdn.co/image/ab67616d00001e02fe8f6dd361ad0f12b88c7f56"
+    },
+    {
+      "id": 6,
+      "name": "Arlindo Cruz",
+      "genre": "Samba",
+      "urlImg": "https://i.scdn.co/image/ab67616100005174181873f93056642d7b340839"
+    },
+    {
+      "id": 7,
+      "name": "Caetano Veloso",
+      "genre": "MPB",
+      "urlImg": "https://i.scdn.co/image/ab67616100005174e98de50f36cf1aa4bf047757"
+    }
+  ]
+}
 export default Playlist;

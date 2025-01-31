@@ -9,6 +9,9 @@ h1 {
 .sidebar {
     padding: 12px;
     width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 .sidebar .fa {
