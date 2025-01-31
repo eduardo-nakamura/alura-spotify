@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import './reset.css';
 import './App.css';
+import './var.css';
+import Footer from './Components/Footer/Footer';
+import Header from './Components/Header/Header';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Playlist from './Components/Playlist/Playlist';
 
 function App() {
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header searchInput={searchInput} onSearchChange={handleSearchChange} />
+      <section className='container-spotify'>
+        <Sidebar />
+        <Playlist searchInput={searchInput} />
+      </section>
+      <Footer />
+    </>
   );
 }
 
