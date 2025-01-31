@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/alura-spotify/static/css/main.f2a50b43.css",
+    "main.js": "/alura-spotify/static/js/main.c1ba584d.js",
+    "static/js/488.baa94a20.chunk.js": "/alura-spotify/static/js/488.baa94a20.chunk.js",
+    "static/media/logo-spotify.png": "/alura-spotify/static/media/logo-spotify.f48fb565509bf23854a8.png",
+    "index.html": "/alura-spotify/index.html",
+    "main.f2a50b43.css.map": "/alura-spotify/static/css/main.f2a50b43.css.map",
+    "main.c1ba584d.js.map": "/alura-spotify/static/js/main.c1ba584d.js.map",
+    "488.baa94a20.chunk.js.map": "/alura-spotify/static/js/488.baa94a20.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2a50b43.css",
+    "static/js/main.c1ba584d.js"
+  ]
+}
